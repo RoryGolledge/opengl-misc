@@ -6,5 +6,6 @@ cc_binary(
     deps = [
         "//third_party/glfw",
         "//third_party/glm",
+        "//third_party/glad",
     ],
 )

@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include <glm/vec4.hpp>
 
 auto main(void) -> int {

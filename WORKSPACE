@@ -48,6 +48,7 @@ http_archive(
     urls = ["https://github.com/glfw/glfw/archive/{}.zip".format(GLFW_VERSION)],
 )
 
+
 ## To generate a `compile_commands.json` for clangd
 
 # Hedron's Compile Commands Extractor for Bazel
