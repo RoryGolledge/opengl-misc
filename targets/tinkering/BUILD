@@ -5,6 +5,7 @@ cc_binary(
     srcs = ["main.cpp"],
     deps = [
         "//lib/common",
+        "//lib/model",
     ],
 )
 

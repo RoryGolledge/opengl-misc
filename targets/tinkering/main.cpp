@@ -6,7 +6,7 @@ auto main(void) -> int {
     return run_program("Tinkering");
 }
 
-auto do_render() -> void {
+auto do_render(void) -> void {
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 }
@@ -24,3 +24,4 @@ auto framebuffer_size_callback(
     (void)width;
     (void)height;
 }
+
