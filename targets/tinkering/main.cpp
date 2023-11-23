@@ -29,10 +29,10 @@ auto pt::do_setup_program(void) -> pt::program* {
     program
         .add_model(model::from_vertices(vertices, 3))
         .add_shader_program(shader_program);
-    
+
     program.shader_program.use();
 
-    return new struct program(std::move(program));
+    return new struct program(program);
 }
 
 auto pt::do_render(struct pt::program& program) -> void {

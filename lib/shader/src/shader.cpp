@@ -5,12 +5,6 @@
 
 #include <shader/shader.h>
 
-shader::shader_program::~shader_program() {
-    glDeleteShader(vertex_shader);
-    glDeleteShader(fragment_shader);
-    glDeleteProgram(program);
-}
-
 auto shader::load_shader(const char* path, GLenum shader_type) -> GLuint {
     if (!std::filesystem::exists(path)) {
         std::cout << "ERROR: '" << path << "' does not exist\n";
@@ -101,5 +95,11 @@ auto shader::shader_program::set_float_uniform(
     const std::string& name, float value
 ) -> void {
     glUniform1i(uniforms.at(name), value);
+}
+
+auto shader::shader_program::cleanup(void) -> void{
+    glDeleteShader(vertex_shader);
+    glDeleteShader(fragment_shader);
+    glDeleteProgram(program);
 }
 

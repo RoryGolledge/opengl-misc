@@ -13,9 +13,6 @@ namespace program_template {
         std::vector<model::model> models;
         shader::shader_program shader_program;
         
-        program() = default;
-        program(program&&) = default;
-
         auto add_model(model::model&) -> program&;
         auto add_model(model::model&&) -> program&;
 

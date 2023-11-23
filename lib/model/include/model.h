@@ -13,10 +13,11 @@ namespace model {
         model(GLuint vao, GLuint vbo, int n_vertices):
             vao(vao), vbo(vbo), n_vertices(n_vertices) {}
 
-        ~model();
+        auto cleanup(void) -> void;
     };
 
     auto from_vertices(float* vertices, int count) -> model;
+
 }
 
 #endif

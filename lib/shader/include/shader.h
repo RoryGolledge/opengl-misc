@@ -17,9 +17,7 @@ namespace shader {
         std::unordered_map<std::string, GLint> uniforms;
 
         shader_program() = default;
-        shader_program(shader_program const&) = default;
-
-        ~shader_program();
+        shader_program(shader_program&) = default;
 
         auto load_vertex_shader(const char* path) -> shader_program&;
         auto load_fragment_shader(const char* path) -> shader_program&;
@@ -31,6 +29,8 @@ namespace shader {
 
         auto set_int_uniform(const std::string& name, int value) -> void;
         auto set_float_uniform(const std::string& name, float value) -> void;
+
+        auto cleanup(void) -> void;
     };
 }
 
