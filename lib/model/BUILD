@@ -9,6 +9,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         "//third_party/glad",
+        "//third_party/glm",
     ]
 )
 

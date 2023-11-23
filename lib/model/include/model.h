@@ -4,6 +4,7 @@
 #include <vector>
 
 #include <glad/glad.h>
+#include <glm/vec3.hpp>
 
 namespace model {
     struct model {
@@ -22,12 +23,12 @@ namespace model {
         auto cleanup(void) -> void;
     };
 
-    struct vertices {
-        std::vector<GLfloat> positions;
-        std::vector<GLuint> indices;
+    struct vertex {
+        glm::vec3 position;
+        glm::vec3 colour;
     };
 
-    auto from_vertices(struct vertices& vertices) -> model;
+    auto from_vertices(std::vector<vertex>& vertices, std::vector<GLuint>& indices) -> model;
 }
 
 #endif
