@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <common/common.h>
-#include <common/hooks.h>
+#include <common/program_template.h>
 
 auto run_program(const char *program_name) -> int {
     glfwInit();
@@ -29,13 +29,14 @@ auto run_program(const char *program_name) -> int {
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
-        framebuffer_size_callback(window, width, height);
+        program_template::framebuffer_size_callback(window, width, height);
     });
 
+    auto program = program_template::do_setup_program();
     while (!glfwWindowShouldClose(window)) {
-        do_process_input(window);
+        program_template::do_process_input(window);
 
-        do_render();
+        program_template::do_render(*program);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

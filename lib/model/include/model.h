@@ -1,31 +1,22 @@
 #ifndef MODEL_MODEL_H
 #define MODEL_MODEL_H
 
-#include <type_traits>
-
-#include <GLFW/glfw3.h>
-#include <OpenGL/OpenGL.h>
+#include <glad/glad.h>
 
 namespace model {
     struct model {
-    public:
+        GLuint vao;
         GLuint vbo;
+        int n_vertices;
 
-        model(model &&) = default;
+        model() = default;
+        model(GLuint vao, GLuint vbo, int n_vertices):
+            vao(vao), vbo(vbo), n_vertices(n_vertices) {}
 
-        auto from_vertices(float* vertices) -> model;
-    private:
-        model(GLuint vbo);
+        ~model();
     };
 
-    static_assert(
-        !std::is_default_constructible<model>::value,
-        "not default constructible"
-    );
-    static_assert(
-        !std::is_copy_constructible<model>::value,
-        "copyable"
-    );
+    auto from_vertices(float* vertices, int count) -> model;
 }
 
 #endif

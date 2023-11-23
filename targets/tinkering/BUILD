@@ -29,6 +29,7 @@ cc_binary(
     deps = [
         "//lib/common",
         "//lib/model",
+        "//lib/programs/standard_program",
     ],
 )
 
