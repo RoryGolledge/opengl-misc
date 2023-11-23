@@ -13,6 +13,11 @@ namespace program_template {
     auto do_setup_program(void) -> struct program*;
 
     /**
+     * To be called once, after the render loop ends.
+     */
+    auto do_shutdown_program(struct program&) -> void;
+
+    /**
      * To be called once per frame, to actually render said frame.
      */
     auto do_render(struct program&) -> void;

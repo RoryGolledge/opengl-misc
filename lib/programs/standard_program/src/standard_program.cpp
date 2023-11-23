@@ -14,8 +14,8 @@ auto program::add_model(model::model&& m) -> program& {
     return *this;
 }
 
-auto program::add_shader_program(shader::shader_program shader_program) -> program& {
-    this->shader_program = shader_program;
+auto program::add_shader_program(shader::shader_program&& shader_program) -> program& {
+    this->shader_program = std::move(shader_program);
     return *this;
 }
 

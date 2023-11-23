@@ -3,6 +3,8 @@
 #include <sstream>
 #include <filesystem>
 
+#include <glm/gtc/type_ptr.hpp>
+
 #include <shader/shader.h>
 
 auto shader::load_shader(const char* path, GLenum shader_type) -> GLuint {
@@ -73,28 +75,40 @@ auto shader::shader_program::use(void) -> void {
     glUseProgram(program);
 }
 
-auto shader::shader_program::create_uniform(const std::string& name) -> void {
+auto shader::shader_program::register_uniform(const std::string& name) -> void {
     auto loc = glGetUniformLocation(program, name.c_str());
     if (loc == -1) {
         std::cout << "WARN: '" << name <<
             "' is not an existing uniform in the current shader program\n";
     } else {
-        std::cout << "INFO: Uniform '" << name << "' set\n";
+        std::cout << "INFO: Uniform '" << name << "' registered.\n";
     }
 
     uniforms[name] = loc;
 }
 
-auto shader::shader_program::set_int_uniform(
+auto shader::shader_program::set_uniform(
     const std::string& name, int value
 ) -> void {
     glUniform1i(uniforms.at(name), value);
 }
 
-auto shader::shader_program::set_float_uniform(
+auto shader::shader_program::set_uniform(
     const std::string& name, float value
 ) -> void {
     glUniform1i(uniforms.at(name), value);
+}
+
+auto shader::shader_program::set_uniform(
+    const std::string& name, glm::vec3 value
+) -> void {
+    glUniform3f(uniforms.at(name), value.x, value.y, value.z);
+}
+
+auto shader::shader_program::set_uniform(
+    const std::string& name, glm::vec4 value
+) -> void {
+    glUniform4f(uniforms.at(name), value.x, value.y, value.z, value.w);
 }
 
 auto shader::shader_program::cleanup(void) -> void{

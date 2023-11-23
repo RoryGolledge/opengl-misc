@@ -12,11 +12,11 @@ namespace program_template {
     struct program {
         std::vector<model::model> models;
         shader::shader_program shader_program;
-        
+
         auto add_model(model::model&) -> program&;
         auto add_model(model::model&&) -> program&;
 
-        auto add_shader_program(shader::shader_program) -> program&;
+        auto add_shader_program(shader::shader_program&&) -> program&;
     };
 }
 
