@@ -30,7 +30,7 @@ auto run_program(const char *program_name) -> int {
     glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
         framebuffer_size_callback(window, width, height);
-    });  
+    });
 
     while (!glfwWindowShouldClose(window)) {
         do_process_input(window);
@@ -38,7 +38,7 @@ auto run_program(const char *program_name) -> int {
         do_render();
 
         glfwSwapBuffers(window);
-        glfwPollEvents();    
+        glfwPollEvents();
     }
 
     glfwTerminate();

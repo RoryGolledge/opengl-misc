@@ -2,6 +2,7 @@
 #include <common/common.h>
 #include <common/hooks.h>
 
+#include <iostream>
 auto main(void) -> int {
     return run_program("Tinkering");
 }

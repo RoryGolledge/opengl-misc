@@ -7,8 +7,8 @@ cc_library(
     include_prefix = "common",
     strip_include_prefix = "include",
     deps = [
-        "//third_party/glfw",
         "//third_party/glad",
+        "//third_party/glfw",
     ],
     visibility = ["//visibility:public"],
 )
