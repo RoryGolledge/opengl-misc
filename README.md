@@ -12,8 +12,8 @@ $ bazel run @hedron_compile_commands//:refresh_all
 Build with:
 
 ```sh 
-$ bazel build //src:project
+$ bazel build //targets:<project>
 ```
 
-This will create an executable located at `bazel-bin/src/project`
+This will create an executable located at `bazel-bin/targets/<project>`
 
